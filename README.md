@@ -47,11 +47,11 @@ Run `rails db:migrate` and make sure the commande succeded
 
 - Run `$ rails server`
 - In the browser go to http://127.0.0.1:3000/users/new
-- This page should display :down
-![screenshot](screenshots/new.png)
+- This page should display ⬇️
+- ![screenshot](screenshots/new.png)
 - Create a new user by putting informations inside the text fields
-- In case something went wrong with data validation errors should be displayed like this :down
-![screenshot](screenshots/error.png)
+- In case something went wrong with data validation errors should be displayed like this ⬇️
+- ![screenshot](screenshots/error.png)
 - Next go to http://127.0.0.1:3000/users/1/edit and update informations of the user with id 1 
 
 ## 🤝 Contributing
