@@ -1,29 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-
+<!--
 <form action="/users"  method="post" accept-charset="utf-8">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-  <label for="username">User Name:</label>
-  <input type="text" id="username" name="user[username]"><br><br>
-  
-  <label for="email">E-mail:</label>
-  <input type="email" id="email" name="user[email]"><br><br>
-  
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="user[password]"><br><br>
-
-  <label for="password">Password Confirmation:</label>
-  <input type="password" id="password_confirmation" name="user[password_confirmation]"><br><br>
-  
-  <input type="submit" value="Submit">
+<label for="username">User Name:</label>
+<input type="text" id="username" name="user[username]"><br><br>
+<label for="email">E-mail:</label>
+<input type="email" id="email" name="user[email]"><br><br>
+<label for="password">Password:</label>
+<input type="password" id="password" name="user[password]"><br><br>
+<label for="password">Password Confirmation:</label>
+<input type="password" id="password_confirmation" name="user[password_confirmation]"><br><br>
+<input type="submit" value="Submit">
 </form>
+-->
 
-</body>
-</html>
+<%# with this form you can't use user_params because the html it %>
+<%# generates has the name of the symbol you pass inside the %>
+<%# text_field_tag. Remember that the name of the input field will %>
+<%# be, in the hash that will get sent, the key and the input will %>
+<%# be the value. This said, to use user_params you would need to %>
+<%# have the input name like user[email], and with the _tag  helper%>
+<%# you can't do that since the name is generate automatically. %>
+<!--
+<%= form_tag("/users", method: "post") do %>
+<%= label_tag(:username, "Username:") %>
+<%= text_field_tag(:username) %><br><br>
+<%= label_tag(:email, "Email:") %>
+<%= text_field_tag(:email) %><br><br>
+<%= label_tag(:password, "Password:") %>
+<%= password_field_tag(:password) %><br><br>
+<%= label_tag(:password, "Password Confirmation:") %>
+<%= password_field_tag(:password_confirmation) %><br><br>
+<%= submit_tag("Create") %>
+<% end %>
+-->
+
+
+
+<%# with form_with you can use user_params from the controller %>
+<%# becauase in the <input> it generates the name like user[email] %>
+<%# so the user_params can use it%>
+<%= form_with model: @user do |form| %>
+<%= form.label "Username:" %>
+<%= form.text_field :username %><br><br>
+<%= form.label "E-mial:" %>
+<%= form.text_field :email %><br><br>
+<%= form.label "Password:" %>
+<%= form.password_field :password %><br><br>
+<%= form.label "Password Confirmation:" %>
+<%= form.password_field :password_confirmation %><br><br>
+<%= form.submit %>
+<% end %>
+
