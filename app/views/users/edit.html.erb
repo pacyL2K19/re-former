@@ -1,0 +1,19 @@
+<h2>Edit user</h2>
+<%= form_with model: @user do |form| %>
+<%= form.label "Username:" %>
+<%= form.text_field :username %><br><br>
+<%= form.label "E-mial:" %>
+<%= form.text_field :email %><br><br>
+<%= form.label "Password:" %>
+<%= form.password_field :password %><br><br>
+<%= form.label "Password Confirmation:" %>
+<%= form.password_field :password_confirmation %><br><br>
+<%= form.submit "Update"%>
+<% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
