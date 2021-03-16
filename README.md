@@ -3,7 +3,6 @@
 
 A rails form project
 > This is part of the Forms Project in The Odin Project’s Ruby on Rails Curriculum. Find it at http://www.theodinproject.com 
-
  
 ## Built With
 
@@ -54,7 +53,7 @@ Run `rails db:migrate` and make sure the commande succeded
 - ![screenshot](screenshots/error.png)
 - Next go to http://127.0.0.1:3000/users/1/edit and update informations of the user with id 1 
 
-## 🤝 Contributing
+## 🤝 Contributing 
 
 Contributions, issues and feature requests are welcome!
 ## Authors
